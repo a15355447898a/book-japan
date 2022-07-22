@@ -1,0 +1,171 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6220,        163]
+NotebookOptionsPosition[      5814,        148]
+NotebookOutlinePosition[      6266,        165]
+CellTagsIndexPosition[      6223,        162]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+  "\:4e66\:7684\:94fe\:63a5", "=", 
+   "\"\<https://ncode.syosetu.com/n9354du/\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\:76ee\:5f55\:6e90\:4ee3\:7801", "=", 
+   RowBox[{"ToString", "@", 
+    RowBox[{"URLRead", "[", 
+     RowBox[{"\:4e66\:7684\:94fe\:63a5", 
+      RowBox[{"(*", "\:5c0f\:8bf4\:7684\:7f51\:5740", "*)"}], ",", 
+      "\"\<Body\>\""}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\:4e66\:540d", "=", 
+   RowBox[{
+    RowBox[{"StringCases", "[", 
+     RowBox[{"\:76ee\:5f55\:6e90\:4ee3\:7801", ",", 
+      RowBox[{
+       RowBox[{
+       "RegularExpression", "@", 
+        "\"\<<p class=\\\"novel_title\\\">(.*)</p>\>\""}], "->", 
+       "\"\<$1\>\""}]}], "]"}], "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\:76ee\:5f55\:539f\:6587", "=", 
+   RowBox[{"StringCases", "[", 
+    RowBox[{"\:76ee\:5f55\:6e90\:4ee3\:7801", "\[IndentingNewLine]", ",", 
+     RowBox[{
+      RowBox[{
+      "RegularExpression", "[", 
+       "\"\<<div class=\\\"chapter_title\\\">(.*)</div>|<dd \
+class=\\\"subtitle\\\">\\n(.*)\\n</dd>\>\"", "]"}], "->", 
+      RowBox[{"{", 
+       RowBox[{"\"\<$1\>\"", ",", "\"\<$2\>\""}], "}"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\:76ee\:5f55\:5904\:7406", "[", 
+    RowBox[{"{", 
+     RowBox[{"x_", ",", "y_"}], "}"}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"x", "==", "\"\<\>\""}], "\[IndentingNewLine]", ",", 
+     RowBox[{"(*", "\:5c0f\:7ae0\:8282", "*)"}], 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{"(*", "\:6807\:9898", "*)"}], 
+      RowBox[{
+       RowBox[{"\"\<### \>\"", "<>", 
+        RowBox[{
+         RowBox[{"StringCases", "[", 
+          RowBox[{"y", ",", 
+           RowBox[{
+            RowBox[{"RegularExpression", "@", "\"\<\\\">(.*)</a>\>\""}], 
+            "->", "\"\<$1\>\""}]}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "<>", "\"\<\\n\\n\>\""}], 
+       "\[IndentingNewLine]", ",", 
+       RowBox[{"(*", "\:6b63\:6587", "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"StringReplace", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"StringCases", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"ToString", "@", 
+            RowBox[{"URLRead", "[", 
+             RowBox[{
+              RowBox[{"\"\<https://ncode.syosetu.com\>\"", "<>", 
+               RowBox[{
+                RowBox[{"StringCases", "[", 
+                 RowBox[{"y", ",", 
+                  RowBox[{
+                   RowBox[{
+                   "RegularExpression", "@", 
+                    "\"\<<a href=\\\"(.*)\\\">\>\""}], "->", "\"\<$1\>\""}]}],
+                  "]"}], "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], ",", "\"\<Body\>\""}], 
+             "]"}]}], "\[IndentingNewLine]", ",", 
+           RowBox[{
+            RowBox[{
+            "RegularExpression", "@", 
+             "\"\<<div id=\\\"novel_honbun\\\" \
+class=\\\"novel_view\\\">((?:.|\\n)*?)</div>\>\""}], "->", "\"\<$1\>\""}]}], 
+          "]"}], "\[IndentingNewLine]", ",", 
+         RowBox[{
+          RowBox[{"\"\<<\>\"", "~~", 
+           RowBox[{
+            RowBox[{"Except", "[", "\"\<>\>\"", "]"}], ".."}], "~~", 
+           "\"\<>\>\""}], "\[Rule]", "\"\<\>\""}]}], "]"}]}], 
+      "\[IndentingNewLine]", "}"}], "\[IndentingNewLine]", ",", 
+     RowBox[{"(*", "\:5927\:7ae0\:8282", "*)"}], 
+     RowBox[{"{", 
+      RowBox[{"\"\<## \>\"", "<>", "x", "<>", "\"\<\\n\\n\>\""}], "}"}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\:539f\:6587\:5217\:8868", "=", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{
+     RowBox[{"\:76ee\:5f55\:5904\:7406", "/@", "\:76ee\:5f55\:539f\:6587"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<# \>\"", "<>", "\:4e66\:540d", "<>", "\"\<\\n\\n\>\""}], 
+      "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\:539f\:6587", "=", 
+   RowBox[{
+    RowBox[{"Flatten", "@", "\:539f\:6587\:5217\:8868"}], "//", "Join"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\:539f\:6587\:4ef6\:540d", "=", 
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{"\:4e66\:540d", "<>", "\"\<.txt\>\""}], ",", "\:539f\:6587"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"RenameFile", "[", 
+   RowBox[{"\:539f\:6587\:4ef6\:540d", ",", 
+    RowBox[{"\:4e66\:540d", "<>", "\"\<.md\>\""}]}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.867464184906245*^9, 3.8674642709373913`*^9}, {
+   3.8674643153295717`*^9, 3.867464336378846*^9}, {3.8674643720255537`*^9, 
+   3.8674644613295937`*^9}, {3.867464698168741*^9, 3.867464746025103*^9}, {
+   3.867465626146208*^9, 3.8674656431834183`*^9}, {3.867465697206442*^9, 
+   3.867465716139298*^9}, {3.867465779394244*^9, 3.867465899454968*^9}, {
+   3.867467648207114*^9, 3.867467739379238*^9}, {3.867467793773026*^9, 
+   3.8674678656982517`*^9}, {3.867467929443433*^9, 3.867467938634966*^9}, {
+   3.867467999876029*^9, 3.867468023265658*^9}, {3.867468060065756*^9, 
+   3.8674680946822863`*^9}, 3.867468482679154*^9, {3.8674686483308487`*^9, 
+   3.867468690555509*^9}},ExpressionUUID->"8b20b3af-7da4-4f77-aec5-\
+0421f417227e"]
+},
+WindowSize->{1600, 799},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+TaggingRules->Association["TryRealOnly" -> False],
+FrontEndVersion->"12.3 for Linux x86 (64-bit) (2021\:5e747\:670823\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"56517672-151d-4e92-bbb8-43f550f8144c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 5252, 126, 758, "Input",ExpressionUUID->"8b20b3af-7da4-4f77-aec5-0421f417227e"]
+}
+]
+*)
+
